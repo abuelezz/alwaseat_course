@@ -2,8 +2,6 @@
 
 var app = angular
   .module('waterApp', [
-    'ngCookies',
-    'ngResource',
     'ngRoute'
   ])
   .config(function ($routeProvider) {
