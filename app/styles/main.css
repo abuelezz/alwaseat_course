@@ -1,0 +1,89 @@
+/* Space out content a bit */
+
+.container {
+  margin:0 auto;
+  overflow: hidden;
+}
+
+.container .welcome {
+  background-image: url("../images/welcome.png");
+  background-position: 80px 35px;
+  display: inline-block;
+  width: 1010px;
+  height: 650px;
+}
+
+.container .backyard {
+  background-image: url("../images/backyard.jpg");
+  display: inline-block;
+  width: 1010px;
+  height: 650px;
+  border: 1px solid red;
+}
+
+.container .exam {
+  background-image: url("../images/exam_bg.png");
+  display: inline-block;
+  width: 1010px;
+  height: 650px;
+  border: 1px solid red;
+}
+
+.container .certificate {
+  background-image: url("../images/certificate.png");
+  display: inline-block;
+  width: 1010px;
+  height: 650px;
+  border: 1px solid red;
+}
+/* Customize container */
+@media (min-width: 1010px) {
+  .container {
+    max-width: 1010px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Login Box*/
+
+.welcome .Login_label {
+  font-family: Comic Sans MS;
+  font-size: 24px;
+  font-weight: bold;
+  height: 40px;
+  left: 370px;
+  position: relative;
+  text-align: center;
+  top: 285px;
+  width: 321px;
+}
+
+.welcome .Login_Name {
+  border: 0 none transparent;
+  height: 32px;
+  padding-left: 10px;
+  vertical-align: middle;
+  width: 225px;
+  word-wrap: normal;
+  margin: 10px;
+}
+
+.welcome button {
+  margin-top: 30px;
+}
+
+.certificate .username {
+  top: 300px;
+  position: relative;
+  left: 395px;
+  font-size: 30px;
+}
