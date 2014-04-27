@@ -11,7 +11,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -24,17 +24,39 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
 
+    <div ng-switch="isLoading">
+
+        <!-- BEGIN: Loading View. -->
+        <p ng-switch-when="true">
+
+            Your images are being loaded... {{ percentLoaded }}%
+
+        </p>
+        <!-- END: Loading View. -->
+
+        <!-- BEGIN: Results View. -->
+        <div ng-switch-when="false" ng-switch="isSuccessful">
+            <div ng-switch-when="true">
+                <div class="container" ng-view=""></div>
+            </div>
+            <p ng-switch-when="false">
+                <strong>Oops</strong>: One of your images failed to load :(
+            </p>
+        </div>
+        <!-- END: Results View. -->
+    </div>
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v5.0.2.min.js"></script>
-    <!-- <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.2.16/angular-route.min.js"></script>
+    <script src="scripts/lib/PxLoader.js"></script>
+    <script src="scripts/lib/PxLoaderImage.js"></script>
+    <script src="scripts/lib/jquery.min.js"></script>
+    <script src="scripts/lib/angular.min.js"></script>
+    <script src="scripts/lib/angular-route.min.js"></script>
+    <script src="scripts/lib/kinetic.min.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
