@@ -7,6 +7,8 @@ angular.module('waterApp')
       navigator.go( _to );
     };
 
+    //$scope.pauseAll = ();
+    //soundManager.play('water_conversation.mp3');
     $scope.gotoCertificate = false;
 
     $scope.loadImages = function(sources, callback) {
@@ -112,7 +114,7 @@ angular.module('waterApp')
               step.setPosition({x:outline.x, y:outline.y});
               stepLayer.draw();
               step.inRightPlace = true;
-
+              soundManager.play('correct_answer.mp3');
               if(++score >= 3) {
                 $scope.gotoCertificate = true;
                 $scope.$apply();
@@ -123,7 +125,7 @@ angular.module('waterApp')
                 step.setDraggable(false);
               }, 50);
             } else {
-              alert('Wrong :(');
+              soundManager.play('wrong_answer.wav');
             }
           });
           // make step glow on mouseover

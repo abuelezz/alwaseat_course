@@ -1,0 +1,43 @@
+[
+  {
+    "time": "0",
+    "visible":true,
+    "text":"Hey {{userName}}! I'm a drop of water. You've seen and used me every day of your life."
+  },
+  {
+    "time": "6",
+    "visible":true,
+    "text":"I don't wish to show off,  but I am the most important resource on our planet."
+  },
+  {
+    "time": "11.5",
+    "visible":false,
+    "text":""
+  },
+  {
+    "time": "12",
+    "visible":true,
+    "text":"Did you know that I can exist as a solid, a liquid, or  a gas?"
+  },
+  {
+    "time": "17",
+    "visible":false,
+    "text":""
+  },
+  {
+    "time": "18",
+    "visible":true,
+    "text":"Let me show you how. "
+  },
+  {
+    "time": "19",
+    "visible":true,
+    "text":"يكفي الآن ... الباقي بدون مزامنة "
+  },
+  {
+    "time": "21",
+    "visible":true,
+    "text":"You can click on below buttons Take Exam, you can stop talking and you can resume talking"
+  }
+
+]
