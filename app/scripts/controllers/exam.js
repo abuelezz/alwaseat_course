@@ -117,6 +117,7 @@ angular.module('waterApp')
               soundManager.play('correct_answer.mp3');
               if(++score >= 3) {
                 $scope.gotoCertificate = true;
+                $scope.goto('/certificate');
                 $scope.$apply();
               }
 
