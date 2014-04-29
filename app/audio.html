@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app="waterApp">
+<head>
+  <meta charset="utf-8">
+  <title>Google Phone Gallery</title>
+</head>
+<body>
+<div>
+<button onclick="stop()" value="Stop">Stop</button>
+</div>
+<script src="scripts/lib/soundmanager2/script/soundmanager2.js"></script>
+
+<script>
+//correct_answer.mp3
+//water_conversation.mp3
+//wrong_answer.wav
+soundManager.setup({
+  url: 'scripts/lib/soundmanager2/swf2/',
+  preferFlash: false,
+  useHTML5Audio: true,
+  onready: function() {
+    var mySound = soundManager.createSound({
+      id: 'aSound',
+      url: 'audio/correct_answer.mp3'
+    });
+  },
+  ontimeout: function() {
+    // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
+  }
+});
+
+soundManager.play();
+</script>
+
+</body>
+</html>
