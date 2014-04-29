@@ -124,30 +124,23 @@ app.run(function(globals, $rootScope, navigator, $templateCache) {
   // load audios
 
   // initialize the sound manager
-  soundManager.url = 'soundManager2/';
-  soundManager.flashVersion = 9;
-  soundManager.useHighPerformance = true; // reduces delays
 
-  // reduce the default 1 sec delay to 500 ms
-  soundManager.flashLoadTimeout = 500;
-
-  // mp3 is required by default, but we don't want any requirements
-  soundManager.audioFormats.mp3.required = false;
-
-  // flash may timeout if not installed or when flashblock is installed
-  soundManager.ontimeout(function(status) {
-      // no flash, go with HTML5 audio
-      soundManager.useHTML5Audio = true;
-      soundManager.preferFlash = false;
-      soundManager.reboot();
+  soundManager.setup({
+    url: 'soundmanager2/swf/',
+    preferFlash: false,
+    useHTML5Audio: true
   });
 
   for (var i = 0; i < course_audios_length; i++) {
       var audio_url = audio_base_path + course_audios[i];
-      if(!soundManager.canPlayURL(audio_url)) {
-        continue; // can't be played
-      }
-      loader.addSound(course_audios[i], audio_url);
+
+      soundManager.createSound({
+        id: course_audios[i],
+        url: audio_url,
+        autoLoad: true,
+        multiShot: true,
+        volume: 25
+      });
   }
 
 
@@ -157,18 +150,6 @@ app.run(function(globals, $rootScope, navigator, $templateCache) {
     if ($rootScope.totalCount == '?' ) {
       $rootScope.totalCount = e.totalCount;
     }
-
-    if(e.resource instanceof PxLoaderSound) {
-      // Sound files
-      var soundId = e.resource.sound.sID;
-      console.log('soundId >>> ', soundId);
-      //soundManager.play(soundId);
-    } else if (e.resource instanceof PxLoaderImage) {
-      // Image files
-    }
-
-    // log
-    console.log(e.resource.getName() + ' >>> Loaded\r');
 
     $rootScope.percentLoaded = e.completedCount;
     if(e.completedCount == e.totalCount ) {
