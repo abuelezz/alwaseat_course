@@ -136,10 +136,7 @@ app.run(function(globals, $rootScope, navigator, $templateCache) {
 
       soundManager.createSound({
         id: course_audios[i],
-        url: audio_url,
-        autoLoad: true,
-        multiShot: true,
-        volume: 25
+        url: audio_url
       });
   }
 
